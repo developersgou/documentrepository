@@ -138,21 +138,18 @@
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
-        <a class="nav-link " href="{{route('admin.jobnotificationlist')}}">
+        <a class="nav-link " href="{{route('admin.departmentlist')}}">
          <i class="bi bi-card-list"></i>
-          <span>Job</span>
+          <span>Department</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
-
-
-
-
-
-
-  
-
-   
+         <li class="nav-item">
+        <a class="nav-link " href="{{route('admin.user-mapping')}}">
+     <i class="bi bi-diagram-3"></i>
+          <span>Mapping</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
 
     </ul>
 

@@ -85,11 +85,11 @@ class LoginController extends Controller
       if( auth()->user()->role == 2) {
           return redirect()->route('department.dashboard');
       }
-        elseif( auth()->user()->role == 3 )
+      if( auth()->user()->role == 3 )
         {
           return redirect()->route('section.dashboard');
       }
-      elseif( auth()->user()->role == 4 )
+      if( auth()->user()->role == 4 )
       {
         return redirect()->route('user.dashboard');
     }

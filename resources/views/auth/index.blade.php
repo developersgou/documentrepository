@@ -26,9 +26,10 @@
                <div class="col-md-12" id="bannerhome2">
               <div class="row">
                  <div class="col-6">
-                       <img src="{{asset('backend/assets//img/dp.png')}}" height="400">
-                
-                
+                  <div class="animated animatedFadeInUp fadeInUp">
+                       <img src="{{asset('backend/assets//img/bg.jpg')}}" height="400">
+                </div>
+              
               </div>
                  
                 <div class="col-6" >
@@ -58,7 +59,7 @@
 
 
            <div class="col-md-4" style="margin-top: 30px;">
-          <a href="{{route('login')}}" class="btn btn-success" style="width: 300px; background-color:ffa900;"><i class="ri-admin-line" id="iconlogin"></i>
+          <a href="{{route('login')}}" class="btn btn-success" style="width: 300px; background-color:#1e2f97;"><i class="ri-admin-line" id="iconlogin"></i>
             <br>
           USER LOGIN    </a>
 

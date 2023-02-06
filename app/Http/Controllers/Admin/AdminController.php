@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\User;
+use App\Models\General\Department;
+use App\Models\General\Documents;
+use App\Models\General\Usermapping;
 class AdminController extends Controller
 {
     /**
@@ -14,7 +17,19 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $usercount = User::where('role','>',1)->count();
+        $depcount= Department::count();
+         $doccount= Documents::where('doc_status',1)->count();
+        $mappingcount=Usermapping::count();
+         //$notification=JobNotification::where('job_status',1)->orderBy('id', 'DESC')->get();
+        //return view('admin.dashboard',["usercount"=>$usercount,"jobcount"=>$jobcount,"notification"=>$notification]);
+        return view('admin.dashboard',
+        [
+            "usercount"=>$usercount,
+            "depcount"=>$depcount,
+             "doccount"=>$doccount,
+            "mappingcount"=>$mappingcount
+        ]);
     }
 
     /**

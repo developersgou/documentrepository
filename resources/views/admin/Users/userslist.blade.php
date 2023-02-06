@@ -3,9 +3,9 @@
 @section("maincontent")
 
     <div class="pagetitle">
-            <div class="alert alert-primary" style="background-color:#1779f4;color: white;text-transform: uppercase;">
-      USERS LIST
-     </div>
+      <div class="alert alert-primary" style="background-color:#1E2F97;color: white;text-transform: uppercase;">
+        <a href="{{route('admin.user-creation')}}" class="btn  btn-primary" ><i class="bi bi-plus-circle-fill"></i> Create User</a> 
+       </div>
     </div><!-- End Page Title -->
 
     <section class="section">
@@ -16,7 +16,7 @@
 
             <div class="card-body">
             
-   
+   <div class="card-title">USER LIST</div>
      <div class="table-responsive">
      
 
@@ -24,12 +24,13 @@
         <table id="example" class="table datatable" style="width:100%">
                 <thead>
                     <tr>
-                          <th>Registration Id</th>
+                        
                           <th>Name</th>
-                          <th>Gender</th>
-                          <th>Date of Birth</th>
-                          <th>Mobile</th>
+            
+                      
                           <th>Email</th>
+                          <th>Role</th>
+                          <th>Created At</th>
                           <th>Action</th>
                         
                         </tr>
@@ -37,15 +38,39 @@
                  <tbody>
                              @foreach($userdetails as $details)
                            <tr>
-                              <td>{{$details->registation_id}}</td>
-                              <td>{{$details->personaldetails->personal_name}}</td>
-                              <td>{{$details->personaldetails->personal_gender}}</td>
-                              <td>{{$details->personaldetails->personal_dob}}</td>
-                              <td>{{$details->fetchUserTable->user_mobile}}</td>
-                              <td>{{$details->fetchUserTable->email}}</td>
-                              <td> <a href="{{route('admin.complete-profile',[$details['id']])}}" class="btn btn-outline-primary">View More</a></td>
-                          
+                             
+                              <td>{{$details->user_name}}</td>  
+                             
+                              <td>{{$details->email}}</td>
+                              <td>
+
+                                @if($details->role == 2)
                                 
+                                 <span class="badge bg-success">Section Authority</span>
+
+
+                                 @elseif($details->role == 3)
+                                 <span class="badge bg-warning">Section Assistant</span>
+
+                                 @else
+                                 <span class="badge bg-secondary">Viewer</span>
+                                @endif
+                              </td>
+                              <td>{{$details->created_at}}</td>
+                              <td> 
+                                @if($details->email_verified == 1)
+                                <a href="{{route('admin.userstatuschange',[$details['id'],'0'])}}" onclick="return confirm('Are you sure you want to make inactive');" class="btn btn-outline-success" style="" id="">Disable </a>
+                              
+                               @else
+                               <a href="{{route('admin.userstatuschange',[$details['id'],'1'])}}" onclick="return confirm('Are you sure you want to make active');" class="btn btn-outline-danger" id="">Enable</a>
+                             
+                            @endif
+                     
+                            <a href="{{route('admin.userremove',[$details['id']])}}" onclick="return confirm('Are you sure you want to delete');" class="btn btn-danger" id="action_btn-del"><i class='bi bi-trash-fill'></i></a>
+                               <a href="{{route('admin.passwrodedit',[$details['id']])}}" class="btn btn-secondary" id=""><i class='bi bi-eye'></i></a>
+                                
+                              </td>
+                          
                           </tr>
                             @endforeach
                             </tbody>
@@ -53,9 +78,7 @@
               </div>
               <!-- End Table with stripped rows -->
      
-<div class="col-lg-12">
-    
-</div>
+
               </div>
               <!-- End Table with stripped rows -->
 

@@ -1,0 +1,126 @@
+
+@section("title","SGOU|DOCUMENT")
+@extends("sectionlayouts.theme")
+@section("maincontent")
+
+    <div class="pagetitle">
+  
+        <div class="btn btn-outline-primary"><a href="{{route('section.document-list')}}" style="">
+          <i class="bi bi-arrow-left-circle-fill"></i> Document List
+            </a></div>            
+      
+    </div><!-- End Page Title -->
+    <section class="section">
+      <div class="row">
+        
+
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+      <h5 class="card-title">Create Document</h5>
+
+   @if(session()->has('message'))
+   <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="bi bi-check-circle me-1"></i>
+                 {{ session()->get('message') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              @endif
+              <!-- Vertical Form -->
+             
+                 <form class="row g-3" method="post" action="{{route('section.storedocument')}}" autocomplete="off" enctype="multipart/form-data">
+                       @csrf
+
+                        <div class="col-6">
+                        <label for="exampleInputName1" class="form-label">Document Number:</label>
+                        <input type="text" class="form-control" id="" autofocus  name="doc_number" value="{{old('doc_number')}}">
+                          @error("doc_number")
+                            <div class="badge bg-danger">
+                               
+                                 {{$errors->first("doc_number")}}
+                                 
+                            </div>
+                             @enderror
+                      </div>
+                          <div class="col-6">
+                        <label for="exampleInputName1" class="form-label">Document Name:</label>
+                        <input type="text" class="form-control" id=""   name="doc_name" value="{{old('doc_name')}}">
+                         <input type="hidden" class="form-control" id=""   name="dep_id" value="{{$dept}}">
+                          @error("doc_name")
+                            <div class="badge bg-danger">
+                               
+                                 {{$errors->first("doc_name")}}
+                                 
+                            </div>
+                             @enderror
+                      </div>
+                 
+                 <div class="col-6">
+                        <label for="exampleInputName1" class="form-label">Approval Date:</label>
+                        <input type="date" class="form-control" id=""   name="doc_approval_date" value="{{old('doc_approval_date')}}">
+                          @error("doc_approval_date")
+                            <div class="badge bg-danger">
+                               
+                                 {{$errors->first("doc_approval_date")}}
+                                 
+                            </div>
+                             @enderror
+                  </div>
+                     
+                         <div class="col-6">
+                        <label for="exampleInputName1" class="form-label">File Type:</label>
+                        <input type="text" class="form-control" id=""   name="doc_filetype" value="{{old('doc_file_type')}}">
+                          @error("doc_filetype")
+                            <div class="badge bg-danger">
+                               
+                                 {{$errors->first("doc_filetype")}}
+                                
+                            </div>
+                             @enderror
+                      </div>
+                          <div class="col-6">
+                        <label for="exampleInputName1" class="form-label">Document:</label>
+                        <input type="file" class="form-control" id=""   name="doc_document" value="{{old('doc_document')}}">
+                          @error("doc_document")
+                            <div class="badge bg-danger">
+                               
+                                 {{$errors->first("doc_document")}}
+                                 
+                            </div>
+                             @enderror
+                      </div>
+                      <div class="col-6">
+                      <label for="exampleInputName1" class="form-label">Remarks:</label>
+                      <textarea class="form-control" name="doc_remarks">
+                        
+                      </textarea >
+                          @error("doc_remarks")
+                            <div class="badge bg-danger">
+                               
+                                 {{$errors->first("doc_remarks")}}
+                                 
+                            </div>
+                             @enderror
+                      </div>
+              
+                   
+                       <div class="text-left">
+                  <button type="submit" class="btn btn-primary">SAVE</button>
+                  <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+                    
+              </form><!-- Vertical Form -->
+
+            </div>
+          </div>
+
+          
+
+          
+
+        </div>
+      </div>
+    </section>
+ 
+    @endsection

@@ -120,9 +120,7 @@
                                          @enderror
                   
                     </div>
-                      <div class="col-12">
-                      <p class="small mb-0">Forgot Password? <a href="{{route('password.request')}}">Click Here</a></p>
-                    </div>
+                    
                   
                     <div class="col-4">
                       

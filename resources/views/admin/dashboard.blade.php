@@ -11,7 +11,7 @@
       </nav>
       <div class="pagetitle">
 
-      <div class="alert alert-primary" style="background-color:#1779f4;color: white;">You are logged in as {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->  email }}} </div>
+      <div class="alert alert-primary" style="background-color:#1E2F97 ;color: white;">You are logged in as {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->  email }}} </div>
     </div><!-- End Page Title -->
     </div><!-- End Page Title -->
 
@@ -45,7 +45,7 @@
               <div class="card info-card sales-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">Job Notification</h5>
+                  <h5 class="card-title">Departments</h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -53,54 +53,57 @@
                     </div>
                     <div class="ps-3">
                       
-                     <a href="{{route('admin.jobnotificationlist')}}" class="btn btn-outline-primary"><h6>{{$jobcount}}</h6> View</a>
+                     <a href="{{route('admin.departmentlist')}}" class="btn btn-outline-primary"><h6>{{$depcount}}</h6> View</a>
 
                     </div>
                   </div>
                 </div>
 
               </div>
-            </div><!-- End Sales Card -->
-            <div class="col-lg-12">
-              <div class="card-title">LATEST JOBS</div>
-              <div class="row">
-          @foreach($notification as $not)
-               <div class="col-md-4">
+            </div>
+             <div class="col-md-4">
               <div class="card info-card sales-card">
 
-                <div class="card-body" style="background-color:whitesmoke;">
-                  <h5 class="card-title">{{$not->job_post}}</h5>
-                 
-                
+                <div class="card-body">
+                  <h5 class="card-title">Mappings</h5>
+
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                 <i class="bi bi-card-list"></i>
+                <i class="bi bi-diagram-3-fill"></i>
                     </div>
                     <div class="ps-3">
                       
-                 <a href="{{route('admin.fetchapplicants',[$not['id']])}}" class="btn btn-outline-primary"><h6>
-                  
-                
-                
-               </h6> View Applicants</a>
+                     <a href="{{route('admin.user-mapping')}}" class="btn btn-outline-primary"><h6>{{$mappingcount}}</h6> View</a>
 
-               
                     </div>
-                 
-                
                   </div>
-
-                
-              
                 </div>
 
               </div>
-            </div><!-- End Sales Card -->
-        <!-- End Right side columns -->
-        @endforeach
+            </div>
 
-      </div>
-      </div>
+              <div class="col-md-4">
+              <div class="card info-card sales-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">Documents</h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+               <i class="bi bi-file-earmark"></i>
+                    </div>
+                    <div class="ps-3">
+                      
+                     <a href="{{route('admin.user-mapping')}}" class="btn btn-outline-primary"><h6>{{$doccount}}</h6> View</a>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+         
       </div>
 <script type="text/javascript">
   function alertWarning()
