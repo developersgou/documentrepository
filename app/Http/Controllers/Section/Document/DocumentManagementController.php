@@ -21,7 +21,18 @@ class DocumentManagementController extends Controller
         $document=Documents::where('doc_status',1)->paginate(5);
         return view("Section.Document.documentlist",["document"=>$document]);
     }
+   
+     public function getPendingDocument()
+    {
+        $user = auth()->user();
+        $dept = Usermapping::where('user_id',$user->id)->value('dept_id');
+        
+        $dep = explode(',',$dept); 
+        $document=Documents::where('doc_status',0)->whereIn('doc_department',$dep)->get();
+        return view("section.Document.approval-pending",["document"=>$document]);
+    }
 
+ 
     /**
      * Show the form for creating a new resource.
      *

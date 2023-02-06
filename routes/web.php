@@ -80,9 +80,16 @@ Route::put ('departmentlist/{departmentlistupdate}',[DepartmentController::class
 Route::get('user-mapping',[UsermappingController::class,'index'])->name('admin.user-mapping');
 Route::get('create-mapping',[UsermappingController::class,'create'])->name('admin.create-mapping');
 Route::post ('postmapping',[UsermappingController::class,'store'])->name('admin.postmapping');
-
+Route::get ('mapping/{id}/mappingstatuschange/{status}',[UsermappingController::class,'mappingStatusChange'])->name('admin.mappingstatuschange');
 
 //[Routing for mapping End]
+
+//[Routing for documents Start]
+Route::get('document-list',[DocumentController::class,'getDocument'])->name('admin.document-list');
+Route::get('document-list-approval-pending',[DocumentController::class,'getPendingDocument'])->name('admin.document-list-approval-pending');
+//Route::get ('documentlist/{id}/documentstatuschange/{status}',[DepartmentheadController::class,'statusChange'])->name('department.documentstatuschange');
+
+//[Routing for documents end]
 
 });
 
@@ -101,6 +108,8 @@ Route::post('createdocument',[DocumentManagementController::class,'store'])->nam
 Route::get ('documentlist/{id}/documentstatuschange/{status}',[DocumentManagementController::class,'statusChange'])->name('section.documentstatuschange');
 Route::get ('documentlist/{id}/edit',[DocumentManagementController::class,'edit'])->name('section.documentlistedit');
 Route::put ('documentlist/{documentlistupdate}',[DocumentManagementController::class,'update'])->name('section.documentlistupdate');
+
+Route::get('document-list-approval-pending',[DocumentManagementController::class,'getPendingDocument'])->name('section.document-list-approval-pending');
 //[Routing for documents end]
 
 });
@@ -112,7 +121,7 @@ Route::group(['prefix'=>'department', 'middleware'=>['isDepartment','auth','is_u
 Route::get('dashboard',[DepartmentheadController::class,'index'])->name('department.dashboard');
 Route::get('user-list',[DepartmentheadController::class,'getUser'])->name('department.user-list');
 Route::get('departmentlist',[DepartmentheadController::class,'getDepartment'])->name('department.departmentlist');
-Route::get('user-mapping',[DepartmentheadController::class,'index'])->name('department.user-mapping');
+Route::get('user-mapping',[DepartmentheadController::class,'mapping'])->name('department.user-mapping');
 
 //[Routing for documents Start]
 Route::get('document-list',[DepartmentheadController::class,'getDocument'])->name('department.document-list');

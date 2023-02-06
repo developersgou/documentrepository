@@ -1,11 +1,11 @@
 @section("title","SGOU|MAPPING")
-@extends("adminlayouts.theme")
+@extends("departmentheadlayouts.theme")
 @section("maincontent")
 
  
     <div class="pagetitle">
       <div class="alert alert-primary" style="background-color:#1E2F97;color: white;text-transform: uppercase;">
-        <a href="{{route('admin.create-mapping')}}" class="btn  btn-primary" ><i class="bi bi-plus-circle-fill"></i> Create Mapping</a> 
+      MAPPING LIST
        </div>
     </div><!-- End Page Title -->
     <!-- End Page Title -->
@@ -14,11 +14,11 @@
       <div class="row">
         <div class="col-lg-12">
      
-          <div class="card">
+          <div class="card" style="padding-top:10px;">
 
             <div class="card-body">
             
-     <h5 class="card-title">MAPPING LIST</h5>
+     
      <div class="table-responsive">
       <table id="example" class="table datatable" style="width:100%">
                 <thead>
@@ -29,7 +29,7 @@
                            <th>Designation</th>
                           <th>Created At</th>
                           <th>Status</th>
-                          <th>Action</th>
+                       
                        
                         
                         </tr>

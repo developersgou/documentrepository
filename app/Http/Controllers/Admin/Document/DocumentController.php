@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Mapping;
+namespace App\Http\Controllers\Admin\Document;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\General\Department;
+use App\Models\General\Documents;
 use App\Models\General\Usermapping;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-class UserMappingController extends Controller
+class DocumentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,7 @@ class UserMappingController extends Controller
      */
     public function index()
     {
-         $mapping=Usermapping::all();
-         return view('admin.Mapping.mapping-list',["mapping"=>$mapping]);
+        //
     }
 
     /**
@@ -28,9 +27,20 @@ class UserMappingController extends Controller
      */
     public function create()
     {
-        $userdetails=User::where('role','>',1)->get();
-        $departmentlist=Department::where('dept_status',1)->get();
-        return view('admin.Mapping.create-mapping',["userdetails"=>$userdetails,"departmentlist"=>$departmentlist]);
+        //
+    }
+    public function getDocument()
+    {
+        
+        $document=Documents::where('doc_status',1)->get();
+        return view("admin.Document.DocumentList",["document"=>$document]);
+    }
+    
+    public function getPendingDocument()
+    {
+      
+        $document=Documents::where('doc_status',0)->get();
+        return view("admin.Document.approval-pending",["document"=>$document]);
     }
 
     /**
@@ -41,39 +51,8 @@ class UserMappingController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
-        "user_id"=>'required',
-        "dept_id"=>'required',
-        "user_designation"=>'required',
-       
-        ],
-        [
-        'user_id.required' => 'Field is mandatory.',
-        'dept_id.required' => 'Field is mandatory.',
-        'user_designation.required' => 'Field is mandatory.',
-
-       ]);
-        
-
-        $dept_id = $request->dept_id;
-        $dept_id = implode(',',$dept_id);
-        $mapping= new Usermapping;
-        $mapping->user_id=request("user_id");
-        $mapping->dept_id=$dept_id;
-        $mapping->user_designation=request("user_designation");
-        $mapping->mapping_status=1;
-        $mapping->save();
-        return redirect()->back()->with('message', 'Mapping Created Successfully!');
+        //
     }
-
-    public function mappingStatusChange($id, $status)
-    {
-       $user= Usermapping::find($id);
-       $user->mapping_status=$status;
-       $user->save();
-        return redirect()->back()->with('message', 'Status Update  Successfully!');
-    }
-
 
     /**
      * Display the specified resource.

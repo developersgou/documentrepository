@@ -31,6 +31,7 @@
                           <th>Email</th>
                           <th>Role</th>
                           <th>Created At</th>
+                          <th>Status</th>
                          
                         
                         </tr>
@@ -57,7 +58,13 @@
                                 @endif
                               </td>
                               <td>{{$details->created_at}}</td>
-                            
+                            <td>
+                                @if($details->status == 1)
+                                   <span class="badge bg-success">Active</span>
+                                   @else
+                                   <span class="badge bg-danger">Inactive</span>
+                                  @endif
+                            </td>
                                 
                           </tr>
                             @endforeach

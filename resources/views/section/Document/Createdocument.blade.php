@@ -3,13 +3,13 @@
 @extends("sectionlayouts.theme")
 @section("maincontent")
 
-    <div class="pagetitle">
-  
-        <div class="btn btn-outline-primary"><a href="{{route('section.document-list')}}" style="">
-          <i class="bi bi-arrow-left-circle-fill"></i> Document List
-            </a></div>            
-      
-    </div><!-- End Page Title -->
+
+
+     <div class="pagetitle">
+      <div class="alert alert-primary" style="background-color:#1E2F97;color: white;text-transform: uppercase;">
+        <a href="{{route('section.document-list')}}" class="btn  btn-primary" ><i class="bi bi-plus-circle-fill"></i> Document List</a> 
+       </div>
+    </div>
     <section class="section">
       <div class="row">
         

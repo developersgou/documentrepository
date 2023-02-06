@@ -1,22 +1,22 @@
 @section("title","SGOU|DOCUMENTS")
-@extends("adminlayouts.theme")
+@extends("sectionlayouts.theme")
 @section("maincontent")
 
    
-        <div class="pagetitle">
+         <div class="pagetitle">
       <div class="alert alert-primary" style="background-color:#1E2F97;color: white;text-transform: uppercase;">
-      DOCUMENT LIST 
+        <a href="{{route('section.document-list')}}" class="btn  btn-primary" ><i class="bi bi-plus-circle-fill"></i> Document List</a> 
        </div>
-    </div><!-- End Page Title --><!-- End Page Title -->
+    </div>
     <section class="section">
       <div class="row">
         <div class="col-lg-12">
      
-          <div class="card">
+          <div class="card" style="padding-top:10px;">
 
             <div class="card-body">
             
-   
+  
   <div class="col-md-3" style="margin-left:auto;" >
      <h1><input type="text" id="Search" class="form-control" onkeyup="myFunction()" placeholder="Search" title="Type in a name"></h1>
   </div>
@@ -91,7 +91,7 @@
                                    @if($documents->doc_status == 1)
                                    <span class="badge bg-success">Approved</span>
                                    @else
-                                   <span class="badge bg-danger">Approval Pending</span>
+                                   <span class="badge bg-danger">Pending</span>
                                   @endif
                                 </td>
                         </tr>
@@ -99,11 +99,12 @@
                          
                           <td colspan="2">
                                   
-                           
-                          
-                             <a href="{{$documents->doc_document}}" download class="btn btn-outline-primary" >Download</a> 
-                            <a href="{{$documents->doc_document}}" target="_black" class="btn btn-outline-warning">Preview</a>
-                           
+                      
+                        
+                             <a href="{{asset($documents->doc_document)}}" download class="btn btn-outline-primary" >Download</a> 
+                            <a href="{{asset($documents->doc_document)}}" target="_black" class="btn btn-outline-warning">Preview</a>
+
+                            
                         </td>
                         </tr>
                     

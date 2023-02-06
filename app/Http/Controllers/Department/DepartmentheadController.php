@@ -22,9 +22,22 @@ class DepartmentheadController extends Controller
         $usercount = User::where('role','>',1)->count();
         $depcount= Department::count();
         $mappingcount=Usermapping::count();
+        $user = auth()->user();
+        $dept = Usermapping::where('user_id',$user->id)->value('dept_id');    
+        $dep = explode(',',$dept); 
+        $documentpending=Documents::where('doc_status',0)->whereIn('doc_department',$dep)->count();
+        $documentcount=Documents::where('doc_status',1)->count();
+
          //$notification=JobNotification::where('job_status',1)->orderBy('id', 'DESC')->get();
         //return view('admin.dashboard',["usercount"=>$usercount,"jobcount"=>$jobcount,"notification"=>$notification]);
-        return view('departmenthead.dashboard',["usercount"=>$usercount,"depcount"=>$depcount,"mappingcount"=>$mappingcount]);       
+        return view('departmenthead.dashboard',
+            [
+                "usercount"=>$usercount,
+                "depcount"=>$depcount,
+                "mappingcount"=>$mappingcount,
+                "documentpending"=>$documentpending,
+                "documentcount"=>$documentcount
+            ]);       
     }
 
     public function getUser()
@@ -62,7 +75,12 @@ class DepartmentheadController extends Controller
        $document->save();
         return redirect()->back()->with('message', 'Status Update  Successfully!');
     }
-
+    
+    public function mapping()
+    {
+         $mapping=Usermapping::all();
+         return view('departmenthead.Mapping.mapping-list',["mapping"=>$mapping]);
+    }
     /**
      * Show the form for creating a new resource.
      *

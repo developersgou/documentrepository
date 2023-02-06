@@ -64,10 +64,10 @@
                                 <td>
                                   
                                     @if($mappings->mapping_status == 1)
-                                <a href="{{route('admin.userstatuschange',[$mappings['id'],'0'])}}" onclick="return confirm('Are you sure you want to make inactive');" class="btn btn-outline-success" style="" id="">Disable </a>
+                                <a href="{{route('admin.mappingstatuschange',[$mappings['id'],'0'])}}" onclick="return confirm('Are you sure you want to make inactive');" class="btn btn-outline-success" style="" id="">Disable </a>
                               
                                @else
-                               <a href="{{route('admin.userstatuschange',[$mappings['id'],'1'])}}" onclick="return confirm('Are you sure you want to make active');" class="btn btn-outline-danger" id="">Enable</a>
+                               <a href="{{route('admin.mappingstatuschange',[$mappings['id'],'1'])}}" onclick="return confirm('Are you sure you want to make active');" class="btn btn-outline-danger" id="">Enable</a>
                              
                             @endif
                                 </td>
