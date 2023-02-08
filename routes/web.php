@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\User\UserDetailController;
 use App\Http\Controllers\Admin\Document\DocumentController;
 use App\Http\Controllers\Admin\Department\DepartmentController;
-use App\Http\Controllers\Admin\Mapping\UsermappingController;
+use App\Http\Controllers\Admin\Mapping\UserMappingController;
 
 use App\Http\Controllers\Section\SectionController;
 use App\Http\Controllers\Section\Document\DocumentManagementController;
@@ -77,10 +77,10 @@ Route::put ('departmentlist/{departmentlistupdate}',[DepartmentController::class
 
 //[Routing for mapping]
 
-Route::get('user-mapping',[UsermappingController::class,'index'])->name('admin.user-mapping');
-Route::get('create-mapping',[UsermappingController::class,'create'])->name('admin.create-mapping');
-Route::post ('postmapping',[UsermappingController::class,'store'])->name('admin.postmapping');
-Route::get ('mapping/{id}/mappingstatuschange/{status}',[UsermappingController::class,'mappingStatusChange'])->name('admin.mappingstatuschange');
+Route::get('user-mapping',[UserMappingController::class,'index'])->name('admin.user-mapping');
+Route::get('create-mapping',[UserMappingController::class,'create'])->name('admin.create-mapping');
+Route::post ('postmapping',[UserMappingController::class,'store'])->name('admin.postmapping');
+Route::get ('mapping/{id}/mappingstatuschange/{status}',[UserMappingController::class,'mappingStatusChange'])->name('admin.mappingstatuschange');
 
 //[Routing for mapping End]
 

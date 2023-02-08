@@ -94,7 +94,7 @@
                     </div>
                     <div class="ps-3">
                       
-                     <a href="{{route('admin.user-mapping')}}" class="btn btn-outline-primary"><h6>{{$documentcount}}</h6> View</a>
+                     <a href="{{route('department.document-list')}}" class="btn btn-outline-primary"><h6>{{$documentcount}}</h6> View</a>
 
                     </div>
                   </div>
@@ -115,7 +115,7 @@
                     </div>
                     <div class="ps-3">
                       
-                     <a href="{{route('admin.user-mapping')}}" class="btn btn-outline-primary"><h6>{{$documentpending}}</h6> View</a>
+                     <a href="{{route('department.document-list-approval-pending')}}" class="btn btn-outline-primary"><h6>{{$documentpending}}</h6> View</a>
 
                     </div>
                   </div>

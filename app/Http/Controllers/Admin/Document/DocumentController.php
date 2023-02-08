@@ -33,14 +33,14 @@ class DocumentController extends Controller
     {
         
         $document=Documents::where('doc_status',1)->get();
-        return view("admin.Document.DocumentList",["document"=>$document]);
+        return view("admin.document.documentlist",["document"=>$document]);
     }
     
     public function getPendingDocument()
     {
       
         $document=Documents::where('doc_status',0)->get();
-        return view("admin.Document.approval-pending",["document"=>$document]);
+        return view("admin.document.approval-pending",["document"=>$document]);
     }
 
     /**

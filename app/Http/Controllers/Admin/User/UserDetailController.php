@@ -18,7 +18,7 @@ class UserDetailController extends Controller
     public function index()
     {
         $userdetails=User::where('role','>',1)->get();
-        return view('admin.Users.userslist',["userdetails"=>$userdetails]);
+        return view('admin.users.userslist',["userdetails"=>$userdetails]);
     }
 
     /**
@@ -105,7 +105,7 @@ class UserDetailController extends Controller
     public function changePassword($id)
     {
         $user= User::find($id);
-        return view("admin.Users.change-password",["user"=>$user]);
+        return view("admin.users.change-password",["user"=>$user]);
     }
 
     /**

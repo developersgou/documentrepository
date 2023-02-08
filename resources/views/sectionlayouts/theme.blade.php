@@ -163,6 +163,11 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
+            <a href="{{route('section.createdocument')}}">
+              <i class="bi bi-circle"></i><span>Create Document</span>
+            </a>
+          </li>
+          <li>
             <a href="{{route('section.document-list')}}">
               <i class="bi bi-circle"></i><span>Approved</span>
             </a>

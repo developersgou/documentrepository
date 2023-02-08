@@ -19,7 +19,7 @@ class DocumentManagementController extends Controller
     public function index()
     {
         $document=Documents::where('doc_status',1)->paginate(5);
-        return view("Section.Document.documentlist",["document"=>$document]);
+        return view("section.document.documentlist",["document"=>$document]);
     }
    
      public function getPendingDocument()
@@ -60,7 +60,7 @@ class DocumentManagementController extends Controller
     }
      public function mappingCheck()
     {
-        return view("section.Document.warning-mapping");
+        return view("section.document.warning-mapping");
     }
 
     /**

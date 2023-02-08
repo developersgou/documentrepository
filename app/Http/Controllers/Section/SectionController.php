@@ -4,6 +4,11 @@ namespace App\Http\Controllers\Section;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\General\Department;
+use App\Models\General\Usermapping;
+use App\Models\General\Documents;
+use Illuminate\Support\Facades\Auth;
 
 class SectionController extends Controller
 {
@@ -14,7 +19,23 @@ class SectionController extends Controller
      */
     public function index()
     {
-          return view('section.dashboard');
+
+
+
+        $user = auth()->user();
+        $dept = Usermapping::where('user_id',$user->id)->value('dept_id');    
+        $dep = explode(',',$dept); 
+        $documentpending=Documents::where('doc_status',0)->whereIn('doc_department',$dep)->count();
+        $documentcount=Documents::where('doc_status',1)->count();
+
+        return view('section.dashboard',
+            [
+               
+               
+                "documentpending"=>$documentpending,
+                "documentcount"=>$documentcount
+            ]);       
+         
     }
 
     /**

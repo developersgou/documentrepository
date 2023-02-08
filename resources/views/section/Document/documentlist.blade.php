@@ -27,7 +27,7 @@
                             <th width="25%">Document Name</th>
                          
                             <th width="25%">Department</th>
-                             <th width="25%">Documnet Number</th>
+                             <th width="25%">Document Number</th>
                             
                         </tr>
         </table>

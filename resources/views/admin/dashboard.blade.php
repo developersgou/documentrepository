@@ -94,7 +94,7 @@
                     </div>
                     <div class="ps-3">
                       
-                     <a href="{{route('admin.user-mapping')}}" class="btn btn-outline-primary"><h6>{{$doccount}}</h6> View</a>
+                     <a href="{{route('admin.document-list')}}" class="btn btn-outline-primary"><h6>{{$doccount}}</h6> View</a>
 
                     </div>
                   </div>
@@ -102,6 +102,29 @@
 
               </div>
             </div>
+
+
+              <div class="col-md-4">
+              <div class="card info-card sales-card">
+
+                <div class="card-body">
+                  <h5 class="card-title">Approval Pending</h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+               <i class="bi bi-file-earmark"></i>
+                    </div>
+                    <div class="ps-3">
+                      
+                     <a href="{{route('admin.document-list-approval-pending')}}" class="btn btn-outline-primary"><h6>{{$documentpending}}</h6> View</a>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
 
          
       </div>

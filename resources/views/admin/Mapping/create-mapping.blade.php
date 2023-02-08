@@ -48,7 +48,7 @@
                              @enderror
                       </div>
                        <div class="col-4">
-                        <label for="exampleInputName1" class="form-label">Department Head:</label>
+                        <label for="exampleInputName1" class="form-label">Department:</label>
                         <select class="form-control" name="dept_id[]"  multiple >
                           <option value="">Select Department</option>
                        @foreach($departmentlist as $departmentlist)

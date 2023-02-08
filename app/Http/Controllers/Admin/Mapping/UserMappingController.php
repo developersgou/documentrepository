@@ -18,7 +18,7 @@ class UserMappingController extends Controller
     public function index()
     {
          $mapping=Usermapping::all();
-         return view('admin.Mapping.mapping-list',["mapping"=>$mapping]);
+         return view('admin.mapping.mapping-list',["mapping"=>$mapping]);
     }
 
     /**
@@ -30,7 +30,7 @@ class UserMappingController extends Controller
     {
         $userdetails=User::where('role','>',1)->get();
         $departmentlist=Department::where('dept_status',1)->get();
-        return view('admin.Mapping.create-mapping',["userdetails"=>$userdetails,"departmentlist"=>$departmentlist]);
+        return view('admin.mapping.create-mapping',["userdetails"=>$userdetails,"departmentlist"=>$departmentlist]);
     }
 
     /**
@@ -42,14 +42,17 @@ class UserMappingController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-        "user_id"=>'required',
+        "user_id"=>'required|unique:usermappings,user_id',
         "dept_id"=>'required',
         "user_designation"=>'required',
+
+       
        
         ],
         [
         'user_id.required' => 'Field is mandatory.',
         'dept_id.required' => 'Field is mandatory.',
+        'user_id.unique' => 'Sorry User is already mapped.',
         'user_designation.required' => 'Field is mandatory.',
 
        ]);

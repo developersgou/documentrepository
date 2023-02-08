@@ -17,7 +17,7 @@ class DepartmentController extends Controller
     public function index()
     {
         $departmentlist=Department::all();
-        return view("Admin.Department.DepartmentList",["departmentlist"=>$departmentlist]);
+        return view("admin.department.departmentlist",["departmentlist"=>$departmentlist]);
     }
 
     /**
@@ -28,7 +28,7 @@ class DepartmentController extends Controller
     public function create()
     {
          $userdetails=User::where('role',2)->get();
-        return view('admin.Department.Createdepartment',["userdetails"=>$userdetails]);
+        return view('admin.department.createdepartment',["userdetails"=>$userdetails]);
     }
 
     /**
@@ -78,7 +78,7 @@ class DepartmentController extends Controller
     public function edit($id)
     {
         $departmentlist= Department::find($id);
-       return view('admin.Department.Updatedepartment',["departmentlist"=>$departmentlist]);
+       return view('admin.department.updatedepartment',["departmentlist"=>$departmentlist]);
     }
 
     /**

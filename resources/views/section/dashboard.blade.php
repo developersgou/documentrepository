@@ -24,15 +24,15 @@
               <div class="card info-card sales-card">
 
                 <div class="card-body">
-                  <h5 class="card-title"> ssdsdsdsdad</h5>
+                  <h5 class="card-title">Documents</h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                <i class="bi bi-person-circle"></i>
+               <i class="bi bi-card-list"></i>
                     </div>
                     <div class="ps-3">
                          
-                      <a href="" class="btn btn-outline-success"><h6></h6> View</a>
+                      <a href="{{route('section.document-list')}}" class="btn btn-outline-success"><h6>{{$documentcount}}</h6> View</a>
                  
 
                     </div>
@@ -45,7 +45,7 @@
               <div class="card info-card sales-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">KSHDHA</h5>
+                  <h5 class="card-title">Approval Pending</h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -53,7 +53,7 @@
                     </div>
                     <div class="ps-3">
                       
-                     <a href="" class="btn btn-outline-primary"><h6>DDD</h6> View</a>
+                     <a href="{{route('section.document-list-approval-pending')}}" class="btn btn-outline-primary"><h6>{{$documentpending}}</h6> View</a>
 
                     </div>
                   </div>
@@ -61,45 +61,7 @@
 
               </div>
             </div><!-- End Sales Card -->
-            <div class="col-lg-12">
-              <div class="card-title">LATEST JOBS</div>
-              <div class="row">
-       
-               <div class="col-md-4">
-              <div class="card info-card sales-card">
-
-                <div class="card-body" style="background-color:whitesmoke;">
-                  <h5 class="card-title">AA</h5>
-                 
-                
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                 <i class="bi bi-card-list"></i>
-                    </div>
-                    <div class="ps-3">
-                      
-                 <a href="" class="btn btn-outline-primary"><h6>
-                  
-                
-                
-               </h6> View Applicants</a>
-
-               
-                    </div>
-                 
-                
-                  </div>
-
-                
-              
-                </div>
-
-              </div>
-            </div><!-- End Sales Card -->
-        <!-- End Right side columns -->
-    
-      </div>
-      </div>
+     
       </div>
 <script type="text/javascript">
   function alertWarning()

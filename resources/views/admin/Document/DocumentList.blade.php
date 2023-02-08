@@ -5,14 +5,14 @@
    
         <div class="pagetitle">
       <div class="alert alert-primary" style="background-color:#1E2F97;color: white;text-transform: uppercase;">
-      DOCUMENT LIST 
+     APPROVED DOCUMENT LIST 
        </div>
     </div><!-- End Page Title --><!-- End Page Title -->
     <section class="section">
       <div class="row">
         <div class="col-lg-12">
      
-          <div class="card">
+          <div class="card" style="padding-top:10px;">
 
             <div class="card-body">
             
@@ -27,7 +27,7 @@
                             <th width="25%">Document Name</th>
                          
                             <th width="25%">Department</th>
-                             <th width="25%">Documnet Number</th>
+                             <th width="25%">Document Number</th>
                             
                         </tr>
         </table>

@@ -28,6 +28,7 @@
                          
                             <th width="25%">Department</th>
                              <th width="25%">Documnet Number</th>
+                              <th width="25%">ACTION</th>
                             
                         </tr>
         </table>
@@ -45,12 +46,17 @@
                      
                           <td width="25%">{{$documents->fetchDepartmentDetails->dept_name}}</td>
                             <td width="25%">{{$documents->doc_number}}</td> 
+                                <th width="25%"><button class="btn btn-outline-success">View</button></th>
                        </tr>
                     </table>
                     </button>
                   </h2>
                   <div id="flush-{{$documents->id}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
+                      <div></div>
+                      <iframe src="{{asset($documents->doc_document)}}" width="100%" height="1000" style="border:none;"></iframe>
+
+                   
                        <table id="example" class="table datatable" style="width:100%">
                         <tr>
                           <th>Document Number</th>

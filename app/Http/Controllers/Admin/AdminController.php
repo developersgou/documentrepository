@@ -20,14 +20,16 @@ class AdminController extends Controller
         $usercount = User::where('role','>',1)->count();
         $depcount= Department::count();
          $doccount= Documents::where('doc_status',1)->count();
-        $mappingcount=Usermapping::count();
+        $documentpending= Documents::where('doc_status',0)->count();
+         $mappingcount=Usermapping::count();
          //$notification=JobNotification::where('job_status',1)->orderBy('id', 'DESC')->get();
         //return view('admin.dashboard',["usercount"=>$usercount,"jobcount"=>$jobcount,"notification"=>$notification]);
         return view('admin.dashboard',
         [
             "usercount"=>$usercount,
             "depcount"=>$depcount,
-             "doccount"=>$doccount,
+            "doccount"=>$doccount,
+            "documentpending"=>$documentpending,
             "mappingcount"=>$mappingcount
         ]);
     }

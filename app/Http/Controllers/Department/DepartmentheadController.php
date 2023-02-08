@@ -43,13 +43,13 @@ class DepartmentheadController extends Controller
     public function getUser()
     {
         $userdetails=User::where('role','>',1)->get();
-        return view('departmenthead.Users.userslist',["userdetails"=>$userdetails]);
+        return view('departmenthead.users.userslist',["userdetails"=>$userdetails]);
     }
 
     public function getDepartment()
     {
         $departmentlist=Department::all();
-        return view("departmenthead.Department.DepartmentList",["departmentlist"=>$departmentlist]);
+        return view("departmenthead.department.departmentList",["departmentlist"=>$departmentlist]);
     }
 
      public function getPendingDocument()
@@ -65,7 +65,7 @@ class DepartmentheadController extends Controller
     {
         
         $document=Documents::where('doc_status',1)->get();
-        return view("departmenthead.Document.DocumentList",["document"=>$document]);
+        return view("departmenthead.document.documentList",["document"=>$document]);
     }
 
      public function statusChange($id, $status)
@@ -79,7 +79,7 @@ class DepartmentheadController extends Controller
     public function mapping()
     {
          $mapping=Usermapping::all();
-         return view('departmenthead.Mapping.mapping-list',["mapping"=>$mapping]);
+         return view('departmenthead.mapping.mapping-list',["mapping"=>$mapping]);
     }
     /**
      * Show the form for creating a new resource.
