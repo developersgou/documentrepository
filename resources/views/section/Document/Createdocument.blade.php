@@ -18,7 +18,7 @@
 
           <div class="card">
             <div class="card-body">
-      <h5 class="card-title">Create Document</h5>
+      <h5 class="card-title">Upload Document</h5>
 
    @if(session()->has('message'))
    <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -44,7 +44,7 @@
                              @enderror
                       </div>
                           <div class="col-6">
-                        <label for="exampleInputName1" class="form-label">Document Name:</label>
+                        <label for="exampleInputName1" class="form-label">Document Subject:</label>
                         <input type="text" class="form-control" id=""   name="doc_name" value="{{old('doc_name')}}">
                          <input type="hidden" class="form-control" id=""   name="dep_id" value="{{$dept}}">
                           @error("doc_name")
@@ -69,9 +69,13 @@
                   </div>
                      
                          <div class="col-6">
-                        <label for="exampleInputName1" class="form-label">File Type:</label>
-                        <input type="text" class="form-control" id=""   name="doc_filetype" value="{{old('doc_file_type')}}">
-                          @error("doc_filetype")
+                        <label for="exampleInputName1" class="form-label">Document Type:</label>
+                        <select class="form-control" name="doc_filetype" value="{{old('doc_file_type')}}">
+                          <option value="">Select Document Type</option>
+                          <option value="UO">University Order</option>
+                          <option value="Circular">Circular</option>
+                        </select>
+                        @error("doc_filetype")
                             <div class="badge bg-danger">
                                
                                  {{$errors->first("doc_filetype")}}
@@ -92,9 +96,8 @@
                       </div>
                       <div class="col-6">
                       <label for="exampleInputName1" class="form-label">Remarks:</label>
-                      <textarea class="form-control" name="doc_remarks">
-                        
-                      </textarea >
+                      <input type="text" name="doc_remarks" class="form-control">
+          
                           @error("doc_remarks")
                             <div class="badge bg-danger">
                                

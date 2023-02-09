@@ -2,12 +2,13 @@
 @extends("sectionlayouts.theme")
 @section("maincontent")
 
-   
-         <div class="pagetitle">
+      <div class="pagetitle">
       <div class="alert alert-primary" style="background-color:#1E2F97;color: white;text-transform: uppercase;">
-        <a href="{{route('section.createdocument')}}" class="btn  btn-primary" ><i class="bi bi-plus-circle-fill"></i> Upload Document</a> 
+        <a href="{{route('section.document-list')}}" class="btn  btn-primary" ><i class="bi bi-plus-circle-fill"></i> Document List</a> 
        </div>
     </div>
+        
+    </div><!-- End Page Title --><!-- End Page Title -->
     <section class="section">
       <div class="row">
         <div class="col-lg-12">
@@ -16,10 +17,9 @@
 
             <div class="card-body">
             
+   <h5 class="card-title">Approval Pending</h5>
   
-
-
-<div class="table-responsive">
+   <div class="table-responsive">
      
 
        <div class="table-responsive">
@@ -72,11 +72,6 @@
 
 
 
-
-
-                  
-
-              </div>
 
             
 
