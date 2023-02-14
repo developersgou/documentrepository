@@ -1,11 +1,11 @@
 @section("title","SGOU|DOCUMENTS")
-@extends("adminlayouts.theme")
+@extends("departmentheadlayouts.theme")
 @section("maincontent")
 
    
         <div class="pagetitle">
       <div class="alert alert-primary" style="background-color:#1E2F97;color: white;text-transform: uppercase;">
-     APPROVED DOCUMENT LIST 
+      TRASH LIST
        </div>
     </div><!-- End Page Title --><!-- End Page Title -->
     <section class="section">
@@ -15,8 +15,8 @@
           <div class="card" style="padding-top:10px;">
 
             <div class="card-body">
+             
             
-   <h5 class="card-title">Document List</h5>
   <div class="table-responsive">
      
 
@@ -25,13 +25,12 @@
                 <thead>
                     <tr>
                         
-                         <th >Document Number</th>
-                         <th >Document Name</th>
-                         <th >Department</th>
-                         <th >Document Type</th>
-                         <th >Uploaded By</th>
+                         <th >Number</th>
+                         <th >Name</th>
+                         <th >Department/Uploaded By</th>
+                         <th >Type</th>
                          <th >Date</th>
-                         <th>ACTION</th>
+                         <th>Action</th>
                         
                         </tr>
                 </thead>
@@ -41,12 +40,20 @@
                              
                               <td>{{$documents->doc_number}}</td>  
                                <td>{{$documents->doc_name}}</td>
-                              <td>{{$documents->fetchDepartmentDetails->dept_name}}</td>
+                              <td>{{$documents->fetchDepartmentDetails->dept_name}}
+                                <br>
+                                <span class="badge bg-success">{{$documents->doc_uploaded_by}}</span>
+                            </td>
                               <td>{{$documents->doc_type}}</td>
-                              <td>{{$documents->doc_uploaded_by}}</td>
+                           
                               <td>{{$documents->doc_approval_date}}</td>
                               <td>  <a href="{{asset($documents->doc_document)}}" target="_black" class="btn btn-outline-warning"><i class="bi bi-eye"></i></a>
-                                 <a href="{{asset($documents->doc_document)}}" download class="btn btn-outline-primary" ><i class="bi bi-box-arrow-down"></i></a> 
+                
+                               <a href="{{route('department.documentsremovetrash',[$documents['id'],'1'])}}" onclick="return confirm('Are you sure you want to remove trash.');" class="btn btn-outline-danger" id=""><i class="bi bi-box-arrow-up"></i></a>
+
+                             
+                           
+                           
                           </td>
                               
                           </tr>
@@ -58,6 +65,7 @@
      
 
               </div>
+   
 
             
 

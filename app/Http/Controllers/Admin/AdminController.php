@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\General\Department;
 use App\Models\General\Documents;
 use App\Models\General\Usermapping;
+use Carbon\Carbon;
 class AdminController extends Controller
 {
     /**
@@ -22,6 +23,9 @@ class AdminController extends Controller
          $doccount= Documents::where('doc_status',1)->count();
         $documentpending= Documents::where('doc_status',0)->count();
          $mappingcount=Usermapping::count();
+          $trashcount=Documents::where('doc_status',2)->count();
+           $document=Documents::where('doc_status',1)->get();
+        //return view("admin.document.documentlist",["document"=>$document]);
          //$notification=JobNotification::where('job_status',1)->orderBy('id', 'DESC')->get();
         //return view('admin.dashboard',["usercount"=>$usercount,"jobcount"=>$jobcount,"notification"=>$notification]);
         return view('admin.dashboard',
@@ -30,9 +34,59 @@ class AdminController extends Controller
             "depcount"=>$depcount,
             "doccount"=>$doccount,
             "documentpending"=>$documentpending,
-            "mappingcount"=>$mappingcount
+            "mappingcount"=>$mappingcount,
+            "trashcount"=>$trashcount,
+            "document"=>$document
         ]);
     }
+
+     public function datefiter(Request $request)
+    {
+
+           request()->validate(
+            [
+                "fromdate" => 'required',
+                "todate" => 'required',
+               
+            ],
+            [
+                'fromdate.required' => 'Field is mandatory.',
+                'todate.required' => 'Field is mandatory.',
+                
+               
+
+            ]
+        );
+
+        $usercount = User::where('role','>',1)->count();
+        $depcount= Department::count();
+         $doccount= Documents::where('doc_status',1)->count();
+        $documentpending= Documents::where('doc_status',0)->count();
+         $mappingcount=Usermapping::count();
+          $trashcount=Documents::where('doc_status',2)->count();
+           $document=Documents::where('doc_status',1)->get();
+       $from = $request->input('fromdate');
+        $to = $request->input('todate');
+    //DD($from);
+        //$startDate = Carbon::createFromFormat('m/d/Y', $from);
+        //$endDate = Carbon::createFromFormat('m/d/Y', $to)->format('Y-m-d');
+        //DD($startDate);
+
+    // Search in the title and body columns from the posts table
+        $document = Documents::whereBetween('doc_approval_date', [$from, $to])->get();
+       
+        return view('admin.dashboard',
+        [
+            "usercount"=>$usercount,
+            "depcount"=>$depcount,
+            "doccount"=>$doccount,
+            "documentpending"=>$documentpending,
+            "mappingcount"=>$mappingcount,
+            "trashcount"=>$trashcount,
+            "document"=>$document
+        ]);
+    }
+
 
     /**
      * Show the form for creating a new resource.

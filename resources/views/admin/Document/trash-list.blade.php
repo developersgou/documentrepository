@@ -5,7 +5,7 @@
    
         <div class="pagetitle">
       <div class="alert alert-primary" style="background-color:#1E2F97;color: white;text-transform: uppercase;">
-     APPROVED DOCUMENT LIST 
+     TRASH LIST 
        </div>
     </div><!-- End Page Title --><!-- End Page Title -->
     <section class="section">
@@ -16,7 +16,7 @@
 
             <div class="card-body">
             
-   <h5 class="card-title">Document List</h5>
+   
   <div class="table-responsive">
      
 

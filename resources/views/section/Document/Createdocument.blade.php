@@ -72,8 +72,9 @@
                         <label for="exampleInputName1" class="form-label">Document Type:</label>
                         <select class="form-control" name="doc_filetype" value="{{old('doc_file_type')}}">
                           <option value="">Select Document Type</option>
-                          <option value="UO">University Order</option>
+                          <option value="University Order">University Order</option>
                           <option value="Circular">Circular</option>
+                          <option value="General">General</option>
                         </select>
                         @error("doc_filetype")
                             <div class="badge bg-danger">

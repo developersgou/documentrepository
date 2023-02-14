@@ -49,6 +49,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth','is_user_verify
 {
     
 Route::get('dashboard',[AdminController::class,'index'])->name('admin.dashboard');
+Route::get('datefiter.result',[AdminController::class,'datefiter'])->name('admin.datewise-filter-search');
 
 //[Routing for userdetails Start]
 Route::get('user-list',[UserDetailController::class,'index'])->name('admin.user-list');
@@ -86,6 +87,7 @@ Route::get ('mapping/{id}/mappingstatuschange/{status}',[UserMappingController::
 
 //[Routing for documents Start]
 Route::get('document-list',[DocumentController::class,'getDocument'])->name('admin.document-list');
+Route::get('document-trashlist',[DocumentController::class,'getTrashDocument'])->name('admin.document-trashlist');
 Route::get('document-list-approval-pending',[DocumentController::class,'getPendingDocument'])->name('admin.document-list-approval-pending');
 //Route::get ('documentlist/{id}/documentstatuschange/{status}',[DepartmentheadController::class,'statusChange'])->name('department.documentstatuschange');
 
@@ -99,7 +101,8 @@ Route::group(['prefix'=>'section', 'middleware'=>['isSection','auth','is_user_ve
 {
     
 Route::get('dashboard',[SectionController::class,'index'])->name('section.dashboard');
-
+Route::get('fiter.result',[SectionController::class,'fiter'])->name('section.filter-search');
+Route::get('datefiter.result',[SectionController::class,'datefiter'])->name('section.datewise-filter-search');
 //[Routing for documents Start]
 Route::get('document-list',[DocumentManagementController::class,'index'])->name('section.document-list');
 Route::get('mapping-check',[DocumentManagementController::class,'mappingCheck'])->name('section.warning-mapping');
@@ -119,14 +122,22 @@ Route::group(['prefix'=>'department', 'middleware'=>['isDepartment','auth','is_u
 {
     
 Route::get('dashboard',[DepartmentheadController::class,'index'])->name('department.dashboard');
+Route::get('datefiter.result',[DepartmentheadController::class,'datefiter'])->name('department.datewise-filter-search');
 Route::get('user-list',[DepartmentheadController::class,'getUser'])->name('department.user-list');
 Route::get('departmentlist',[DepartmentheadController::class,'getDepartment'])->name('department.departmentlist');
 Route::get('user-mapping',[DepartmentheadController::class,'mapping'])->name('department.user-mapping');
 
 //[Routing for documents Start]
 Route::get('document-list',[DepartmentheadController::class,'getDocument'])->name('department.document-list');
+Route::get('document-trash-list',[DepartmentheadController::class,'getDocumentTrash'])->name('department.document-trash-list');
 Route::get('document-list-approval-pending',[DepartmentheadController::class,'getPendingDocument'])->name('department.document-list-approval-pending');
+
 Route::get ('documentlist/{id}/documentstatuschange/{status}',[DepartmentheadController::class,'statusChange'])->name('department.documentstatuschange');
+
+Route::get ('documentlist/{id}/trash/{status}',[DepartmentheadController::class,'trash'])->name('department.documentstrash');
+
+Route::get ('documentlist/{id}/removetrash/{status}',[DepartmentheadController::class,'removetrash'])->name('department.documentsremovetrash');
+
 
 //[Routing for documents end]
 

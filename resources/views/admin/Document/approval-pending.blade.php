@@ -45,7 +45,7 @@
                               <td>{{$documents->fetchDepartmentDetails->dept_name}}</td>
                               <td>{{$documents->doc_type}}</td>
                               <td>{{$documents->doc_uploaded_by}}</td>
-                              <td>{{$documents->created_at}}</td>
+                              <td>{{$documents->doc_approval_date}}</td>
                               <td>  <a href="{{asset($documents->doc_document)}}" target="_black" class="btn btn-outline-warning"><i class="bi bi-eye"></i></a>
                                  <a href="{{asset($documents->doc_document)}}" download class="btn btn-outline-primary" ><i class="bi bi-box-arrow-down"></i></a> 
                           </td>

@@ -35,6 +35,12 @@ class DocumentController extends Controller
         $document=Documents::where('doc_status',1)->get();
         return view("admin.document.documentlist",["document"=>$document]);
     }
+    public function getTrashDocument()
+    {
+        
+        $document=Documents::where('doc_status',2)->get();
+        return view("admin.document.trash-list",["document"=>$document]);
+    }
     
     public function getPendingDocument()
     {

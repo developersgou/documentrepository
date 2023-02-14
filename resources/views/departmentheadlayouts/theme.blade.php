@@ -166,6 +166,12 @@
               <i class="bi bi-circle"></i><span>Pending</span>
             </a>
           </li>
+
+          <li>
+            <a href="{{route('department.document-trash-list')}}">
+              <i class="bi bi-circle"></i><span>Trash</span>
+            </a>
+          </li>
         </ul>
       </li><!-- End Tables Nav -->
 
